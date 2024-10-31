@@ -18,6 +18,8 @@ int main(){
   scanf("%d",&lenght);
   
   node* start=(node*)malloc(sizeof(node));
+  start->data=1;
+  start->next=NULL;
   
   for(int i=0;i<lenght;i++){
   
@@ -32,15 +34,18 @@ int main(){
 
 void add(node* ptr){
 
-  static int num=1;
+  static int num=2;
   
   while(ptr->next!=NULL){
 
     ptr=ptr->next;
   }
 
-  ptr->next=(node*)malloc(sizeof(node));
-  ptr->data=num++;
+  node* newNode=(node*)malloc(sizeof(node));
+  newNode->data=num++;
+  newNode->next=NULL;
+  
+  ptr->next=newNode;
   
 }
 
